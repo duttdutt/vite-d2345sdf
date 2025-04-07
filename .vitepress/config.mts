@@ -4,10 +4,11 @@ import {
   groupIconMdPlugin,
   groupIconVitePlugin,
 } from "vitepress-plugin-group-icons";
+import taskLists from "markdown-it-task-lists";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Test",
+  title: "Personal Knowledgebase",
   description: "Description",
   appearance: "dark",
   themeConfig: {
@@ -20,26 +21,20 @@ export default defineConfig({
     //   { icon: 'github', link: 'https://github.com/vitejs/vite' },
     // ],
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "Guide", link: "/guide/", activeMatch: "/guide/" },
-    ],
+    nav: [{ text: "Vue", link: "/vue/", activeMatch: "/vue/" }],
 
     sidebar: {
-      "/guide/": [
+      "/vue/": [
         {
           text: "Introduction",
           items: [
             {
-              text: "Getting Started",
-              link: "/guide/",
+              text: "Роадмап",
+              link: "/vue/",
             },
             {
-              text: "Philosophy",
-              link: "/guide/philosophy",
-            },
-            {
-              text: "Why Vite",
-              link: "/guide/why",
+              text: "Веб-компоненты",
+              link: "/vue/web-components",
             },
           ],
         },
@@ -66,7 +61,10 @@ export default defineConfig({
         },
       },
     ],
-    config(md) {
+    config: (md) => {
+      md.use(taskLists, {
+        enabled: true,
+      });
       md.use(groupIconMdPlugin);
     },
   },
