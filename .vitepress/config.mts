@@ -13,7 +13,7 @@ export default defineConfig({
   appearance: "dark",
   themeConfig: {
     editLink: {
-      pattern: "https://github.com/vitejs/vite/edit/main/docs/:path",
+      pattern: "",
       text: "Suggest changes to this page",
     },
 
@@ -54,7 +54,7 @@ export default defineConfig({
       light: "github-light",
     },
     codeTransformers: [
-      transformerTwoslash(),
+      // transformerTwoslash(),
       {
         postprocess(code) {
           return code.replace(/\[\!\!code/g, "[!code");
